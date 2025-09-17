@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório Financeiro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Relatório Financeiro</h1>
+
+    <p><strong>Total de Entradas:</strong> R$ {{ "%.2f"|format(total_entrada) }}</p>
+    <p><strong>Total de Saídas:</strong> R$ {{ "%.2f"|format(total_saida) }}</p>
+    <p><strong>Saldo:</strong> R$ {{ "%.2f"|format(saldo) }}</p>
+
+    <br>
+    <a href="{{ url_for('index') }}">⬅ Voltar</a>
+</body>
+</html>

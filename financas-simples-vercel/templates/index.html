@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Minhas Finanças</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Controle de Finanças</h1>
+
+    <a href="{{ url_for('adicionar') }}">➕ Adicionar Transação</a> | 
+    <a href="{{ url_for('relatorio') }}">📊 Relatório</a>
+
+    <h2>Transações</h2>
+    <ul>
+        {% for t in transacoes %}
+            <li>{{ t.descricao }} - R$ {{ "%.2f"|format(t.valor) }} ({{ t.tipo }})</li>
+        {% else %}
+            <li>Nenhuma transação registrada.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
